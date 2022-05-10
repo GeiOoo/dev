@@ -1,0 +1,99 @@
+.drag {
+    position: absolute;
+    transition: box-shadow 400ms;
+    z-index: 1;
+    cursor: move;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.drag > .drag {
+    max-height: calc(80% - 15px);
+    max-width: calc(80% - 15px);
+}
+
+.drag.isDragged {
+    pointer-events: none;
+}
+
+.drag.isDragged {
+    position: absolute;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    pointer-events: none;
+}
+
+.drop > .drag > .frameSizer {
+    visibility: hidden;
+}
+
+.drop.hovered {
+    background-color: #e4e4e4;
+}
+
+.frameSizer {
+    position: absolute;
+    background-color: transparent;
+}
+
+.topSizer {
+    top: -5px;
+    left: 5px;
+    right: 5px;
+    height: 10px;
+    cursor: n-resize;
+}
+
+.bottomSizer {
+    bottom: -5px;
+    left: 5px;
+    right: 5px;
+    height: 10px;
+    cursor: s-resize;
+}
+
+.leftSizer {
+    left: -5px;
+    top: 5px;
+    bottom: 5px;
+    width: 10px;
+    cursor: w-resize;
+}
+
+.rightSizer {
+    right: -5px;
+    top: 5px;
+    bottom: 5px;
+    width: 10px;
+    cursor: e-resize;
+}
+
+.cSizer {
+    height: 10px;
+    width: 10px;
+}
+
+.topLeftSizer {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+
+.topRightSizer {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+
+.bottomLeftSizer {
+    bottom: -5px;
+    left: -5px;
+    cursor: sw-resize;
+}
+
+.bottomRightSizer {
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}

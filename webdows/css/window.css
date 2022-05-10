@@ -1,0 +1,288 @@
+.window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translate(50px, 50px);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.07);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    -webkit-transition: width 200ms, height 200ms, transform 200ms, box-shadow 200ms;
+    -moz-transition: width 200ms, height 200ms, transform 200ms, box-shadow 200ms;
+    transition: width 200ms, height 200ms, transform 200ms, box-shadow 200ms;
+    min-width: 300px;
+    min-height: 100px;
+}
+
+.window.active {
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,1);
+}
+
+.window.fullscreen {
+    height: 100% !important;
+    width: 100% !important;
+    transform: translate(0, 0) !important;
+}
+
+.window.isDragging {
+    transition: transform 0ms !important;
+}
+
+.window.isResizing {
+    transition: transform 0ms !important;
+}
+
+.windowTopbar {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    height: 25px;
+}
+
+.windowTopbarLabel {
+    position: relative;
+    top: 5px;
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 0 !important;
+}
+
+.windowTopbarIcon {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    margin-bottom: -9px;
+    width: 20px;
+    top: 4px;
+}
+
+.windowTopbarBtns {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid rgba(0,0,0,0.6);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.windowTopbarBtns > div{
+    position: relative;
+    width: 50px;
+    height: 20px;
+    display: inline-block;
+    margin-bottom: -4px;
+    white-space: nowrap;
+    -webkit-transition: background-color 200ms ease-in-out;
+    -moz-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+    box-shadow: inset 0 10px 1px rgba(255,255,255,0.1), inset 0 0 2px rgba(255,255,255,0.75);
+}
+
+.windowTopbarBtns > div:nth-child(2){
+    border-left: 1px solid rgba(0,0,0,0.6);
+    border-right: 1px solid rgba(0,0,0,0.6);
+}
+
+.windowTopbarBtns > div:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.windowTopbarBtns > div:active {
+    background-color: rgba(111, 111, 111, 0.46);
+}
+
+.btnMin >.icon {
+    bottom: 4px;
+}
+
+.btnMax > .icon {
+    bottom: -3px;
+}
+
+.btnClose > .icon {
+    bottom: -5px;
+}
+
+.btnClose {
+    background-color: rgba(226, 0, 0, 0.65) !important;
+}
+
+.btnClose:hover {
+    background-color: rgba(226, 0, 0, 0.80) !important;
+}
+
+.btnClose:active {
+    background-color: rgba(226, 0, 0, 0.40) !important;
+}
+
+.windowContent {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    top: 30px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.topSizer {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    height: 5px;
+    cursor: n-resize;
+}
+
+.leftSizer {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    bottom: 5px;
+    width: 5px;
+    cursor: w-resize;
+}
+
+.rightSizer {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 5px;
+    bottom: 5px;
+    cursor: e-resize;
+}
+
+.bottomSizer {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    height: 5px;
+    cursor: s-resize;
+}
+
+.cSizer {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    z-index: 999;
+}
+
+.topLeftSizer {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.topRightSizer {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.bottomLeftSizer {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.bottomRightSizer {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.loginBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999999999999999999999;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.loginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+}
+
+.loginForm > .loginMail {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: max-height 200ms, margin 200ms, padding 200ms, border 200ms;
+}
+
+.loginForm > .loginMail.show {
+    max-height: 30px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.loginForm > input {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    outline: none;
+    display: inline-block;
+    max-height: 25px;
+    height: 25px;
+    width: 200px;
+}
+
+.loginForm button {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    outline: none;
+    display: inline-block;
+    max-height: 25px;
+    height: 25px;
+    width: 100px;
+}
+
+.loginForm #submitForm > span {
+    display: none;
+}
+
+.loginForm #submitForm::after {
+    content: "Login";
+}
+
+.loginForm > .reg  > #submitForm::after {
+    content: "Register";
+}
+
+.loginForm #register > span {
+    display: none;
+}
+
+.loginForm  #register::after {
+    content: "Register";
+}
+
+.loginForm  > .reg > #register::after {
+    content: "Cancel";
+}

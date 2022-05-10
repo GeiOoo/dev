@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+		:root {
+			--main-hue: 210;
+			--main-hue2: 205;
+			--main-hue3: 190;
+			--light-text-color: hsl(var(--main-hue), 100%, 92%);
+			--light-text-color-hsl: var(--main-hue), 100%, 92%;
+			--strong-text-color: hsl(var(--main-hue2), 68%, 66%);
+			--strong-text-color-hsl: var(--main-hue2), 68%, 66%;
+			--strong-color-hsl: var(--main-hue), 100%, 50%;
+			--strong-color: hsl(var(--main-hue), 100%, 50%);
+			--strong-color2-hsl: var(--main-hue3), 100%, 50%;
+			--strong-color2: hsl(var(--main-hue3), 100%, 50%);
+			--background-color: #333;
+			--button-color: #555;
+			--button-color2: #444;
+		}
+		html, body {
+			height: 100%;
+		}
+		body {
+			background-color: var(--background-color);
+			
+			margin: 0;
+		}
+		.loading {
+			transition: all 1s ease-in-out;
+			font-size: 100px;
+			position: absolute;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			perspective: 500px;
+		}
+		.loading.done > * {
+			animation: logo-anim-3 0.2s 3.7s ease-in both;
+		}
+		.loading > .logo {
+			width: 5em;
+			text-align: center;
+		}
+		.loading > .logo > * {
+			opacity: 0;
+			display: inline-block;
+		}
+		.loading > .logo > * {
+			opacity: 1;
+			text-shadow:0 1px 0 var(--logo-3d-color),
+						0 2px 0 var(--logo-3d-color),
+						0 3px 0 var(--logo-3d-color),
+						0 4px 0 var(--logo-3d-color),
+						0 5px 0 var(--logo-3d-color),
+						0 6px 0 var(--logo-3d-color),
+						0 7px 0 var(--logo-3d-color),
+						0 10px 20px rgba(0,0,0,0.3);
+		
+		}
+		.loading:not(.done) > .logo > * {
+			opacity: 0; 
+			text-shadow: none;
+		}
+		.loading:not(.done) > .logo > :not(:last-child) {
+			letter-spacing: -0.7em !important;
+		}
+		.loading .icon {
+			display: inline-block;
+			width: 0.888em;
+			height: 1.2em;
+			position: absolute;
+		}
+		.loading.done > .icon {
+			transition: all 1s ease-in-out 1s, opacity 0.5s linear 0.3s;
+			opacity: 0;
+		}
+		.loading > .icon, .loading > .logo > :first-child {
+			font-size: 2em;
+		}
+		.loading.done > .icon, .loading.done > .logo > :first-child {
+			font-size: 1em;
+		}
+		.loading > .icon svg {
+			width: 100%;
+			height: 100%;
+		}
+		.loading > .icon svg path {
+			stroke: var(--strong-text-color);
+			stroke-dasharray: 2 8;
+			fill: none;
+			stroke-width: 10%;
+			transform: scale(1.09, 1.01);
+			transform-origin: 50%;
+		}
+		.loading:not(.done) > .icon svg path {
+			animation: logo-anim-1 0.5s infinite linear;
+		}
+		.loading.done > .icon svg path {
+			animation: logo-anim-2 0.5s linear forwards, logo-anim-1 0.5s infinite linear;
+		}
+		.loading > .logo > :first-child {
+			transition: all 1s ease-in-out 0.6s, opacity 0.3s linear 0.35s, text-shadow 1s ease-out 2s;
+		}
+		.loading > .logo > :nth-child(2) {
+			transition: letter-spacing 1s ease-in-out 1.5s, opacity 1s ease-in-out 1.5s, text-shadow 1s ease-out 2s;
+		}
+		.loading > .logo > :nth-child(3) {
+			transition: letter-spacing 1s ease-in-out 1.8s, opacity 1s ease-in-out 1.8s, text-shadow 1s ease-out 2s;
+		}
+		.loading > .logo > :nth-child(4) {
+			transition: letter-spacing 1s ease-in-out 2.1s, opacity 1s ease-in-out 2.1s, text-shadow 1s ease-out 2s;
+		}
+		
+		.logo {
+			font-family: 'Montserrat Alternates', sans-serif;
+			color: white;
+			--logo-3d-color: hsl(var(--main-hue), 60%, 50%);
+		}
+		.logo > :first-child {
+			font-weight: 900;
+			letter-spacing: 0.04em;
+			color: var(--strong-text-color);
+		}
+		.logo > :nth-child(2) {
+			font-weight: 700;
+			letter-spacing: 0.02em;
+		}
+		.logo > :nth-child(3) {
+			font-weight: 700;
+		}
+		.logo > :nth-child(4) {
+			font-weight: 700;
+		}
+		
+		.logo.small {
+			transition: all 0.1s;
+			display: inline-block;
+			font-size: 30px;
+			top: -10vh;
+			position: relative;
+			padding: 1em;
+		} 
+		.logo.small.done {
+			animation: logo-anim-4 0.2s 4.1s forwards;			
+		}
+		.logo.small.done:hover {
+			
+		}
+		
+		.logo.small > * {
+			text-shadow:0 1px 0 var(--logo-3d-color),
+						0 2px 0 var(--logo-3d-color),
+						0 3px 0 var(--logo-3d-color),
+						0 5px 10px rgba(0,0,0,0.3);
+		}
+		
+		
+		@keyframes logo-anim-1 {
+			to {
+				stroke-dashoffset: -10;
+			}
+		}
+		@keyframes logo-anim-2 {
+			to {
+				stroke-dasharray: 10 0;
+				stroke-width: 23%;
+			}
+		}
+		@keyframes logo-anim-3 {
+			to {
+				transform: rotate3d(1,0,0,-90deg);
+			}
+		}
+		@keyframes logo-anim-4 {
+			to {
+				top: 0;
+			}
+		}
+    </style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.5, maximum-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:500,600,700,900" rel="stylesheet">
+	<script>
+		$(document).ready(function() {
+			$(".loading").delay(2000).queue(function(next) { 
+				$(this).toggleClass("done"); 
+				$(".logo.small").addClass("done"); 
+				$(".loading").delay(4200).queue(function(next) {
+					$(this).css("display","none");
+					next();
+				});
+				next(); 
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<svg style="position: absolute;">
+		<filter id="knob-blur" filterUnits="userSpaceOnUse" height="200%" width="200%">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+		</filter>
+		<filter id="knob-blur-small" filterUnits="userSpaceOnUse" height="200%" width="200%">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+		</filter>
+		<filter id="knob-tiny" filterUnits="userSpaceOnUse" height="200%" width="200%">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+		</filter>
+	</svg>
+	<span class="logo small">
+		<span>O</span><span>D</span><span>A</span><span>W</span>
+	</span>
+	<div class="loading ">
+		<span class="icon">
+			<svg viewbox="0 0 54 54">
+				<path class="loading" d="M26.5 28.2 m 15.9155,0 a 15.9155 15.9155 0 0 1 -31.831 0 a 15.9155 15.9155 0 0 1 31.831 0" />
+			</svg>
+		</span>
+		<span class="logo">
+			<span>O</span><span>D</span><span>A</span><span>W</span>
+		</span>
+	</div>
+</body>
+</html>

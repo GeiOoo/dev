@@ -1,0 +1,37 @@
+* {
+    font-family: Arial, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    font-family: Arial, sans-serif;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+
+#frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 0;
+    background: grey no-repeat center center fixed;
+    background-size: cover;
+}
+
+#workspace {
+    width: 100%;
+    height: calc(100% - 50px);
+    position: relative;
+}
+
+.floatRight {
+    float: right;
+}

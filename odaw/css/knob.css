@@ -1,0 +1,176 @@
+.knob {
+    backface-visibility: hidden;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0.2em;
+    width: 5em;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    touch-action: none;
+    user-select: none;
+}
+.knob.small {
+    margin-left: 0.6em;
+    margin-right: 0.6em;
+}
+.knob.tiny {
+    margin-left: 1.4em;
+    margin-right: 1.4em;
+}
+.knob.disabled {
+    --light-text-color: var(--text-color);
+}
+.knob  * {
+    transition: all 0s;
+}
+.knob > * {
+    transition: transform 0.1s ease-in-out;
+}
+.knob.small:not(.disabled):hover > *, .knob.small.changing > * {
+    transform: scale(1.1);
+}
+.knob.tiny:not(.disabled):hover > *, .knob.tiny.changing > * {
+    transform: scale(1.2);
+}
+.knob > .outer > .glow {
+    filter: url("#knob-blur");
+}
+.knob.small > .outer > .glow {
+    filter: url("#knob-blur-small");
+}
+.knob.tiny > .outer > .glow {
+    filter: url("#knob-blur-tiny");
+}
+.knob:hover > .outer > .glow, .knob:active > .outer > .glow {
+    opacity: 0.4;
+}
+.knob.showNum:after {
+    content:attr(data-value);
+    position: relative;
+    top: 78%;
+    color: var(--light-text-color);
+    font-family: sans-serif;
+    padding: 0.2em 0;
+    border-top: var(--bg-color);
+    border-radius: 3px;
+    width: 2.5em;
+    font-size: 1em;
+    text-align: center;
+}
+.knob > * {
+    position: absolute;
+}
+.knob > .inner {
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    background-image: linear-gradient(to bottom, transparent, var(--bg-color));
+    text-shadow: 0 1px 0 rgba(0,0,0,1), 0 0 5px hsl(var(--strong-color-hsl)), 0 0 2px hsl(var(--strong-color2-hsl));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box-shadow:
+            inset 0 1px 0 0px rgba(255,255,255,0.5),
+            inset 0 -1px 0 rgba(0,0,0,0.2),
+                0 0 0 0.2em #222,
+                0 1px 0 0.2em rgba(255,255,255,0.2);*/
+}
+.knob.small > .inner {
+    width: 80%;
+    height: 80%;
+}
+.knob.tiny > .inner {
+    width: 70%;
+    height: 70%;
+}
+.knob > .inner > div {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow:
+            inset 0 1px 0 0 rgba(255,255,255,0.5),
+            0 0 2px 2px rgba(0,0,0,0.2);
+}
+.knob > .inner > div > div {
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    transform: rotate(0deg);
+}
+.knob > .inner > div > div:after {
+    content: '';
+    display: block;
+    top: 15%;
+    position: relative;
+    width: 3px;
+    height: 0.7em;
+    border-radius: 50%;
+    background-color: var(--light-text-color);
+}
+.knob.showlab {
+    margin-bottom: 1.6em;
+}
+.knob.tiny.showlab {
+    margin-bottom: 2.4em;
+}
+.knob.showlab:before, .knob.showlab:after {
+    transition: all 0.1s;
+    color: var(--light-text-color);
+    position: absolute;
+    top: 68%;
+    font-size: 1.2em;
+}
+.knob.showlab:before {
+    content: attr(data-value);
+    opacity: 0;
+}
+.knob.showlab:after {
+    content: attr(data-label);
+}
+.knob.showlab:not(.disabled):hover:after, .knob.showlab.changing:after {
+    opacity: 0;
+}
+.knob.showlab:not(.disabled):hover:before, .knob.showlab.changing:before {
+    opacity: 1;
+}
+.knob.tiny.showlab:after, .knob.tiny.showlab:before {
+    font-size: 2.4em;
+    top: 100%;
+}
+.dark .knob > .inner > div > div:after {
+
+}
+.light .knob > .inner > div > div:after {
+
+}
+.knob.small > .inner > div > div:after {
+    height: 0.9em;
+}
+.knob.tiny > .inner > div > div:after {
+    height: 1.3em !important;
+    width: 2px;
+}
+.knob > .outer {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.knob > svg path {
+    fill: none;
+    stroke-width: 15%;
+    /*stroke-linecap: round;*/
+    transform-origin: 50%;
+    transform: rotate(135deg);
+}
+.knob > svg .stroke {
+    stroke: var(--light-text-color);
+}
+.knob > svg .glow {
+    stroke: var(--strong-color);
+    opacity: 0.3;
+}

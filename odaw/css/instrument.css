@@ -1,0 +1,19 @@
+.instrument {
+    transition: background-color 0.1s;
+    position: relative;
+    max-width: 100%;
+    align-items: center;
+}
+.instrument.active {
+    background: none;
+    background-color: var(--light-text-color);
+}
+.dark .instrument.active {
+    box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.5);
+}
+.light .instrument.active > .surface {
+    box-shadow: none;
+}
+.dark .instrument.active > .surface {
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.5);
+}

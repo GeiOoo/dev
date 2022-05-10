@@ -1,0 +1,62 @@
+{
+	"types": {	
+		"image": ["jpg","png"], 
+		"text": ["html","htm","xml","txt","css","js","php"],
+		"music": ["wav","mp3","ogg"],
+		"video": ["flv","mp4","mov"],
+		"link": ["link"]
+	},
+	"apps": {
+		"Bildanzeige": ["image"],
+		"Editor": ["text"],
+		"Player": ["video","music"],
+		"Linker": ["link"]
+	},
+	"appproperties": {
+		"Bildanzeige": {
+			"title": "file",
+			"statusbar": true,
+			"statuselements":{
+				"Datei":{
+					"&Ouml;ffnen":"open",
+					"Schlie&szlig":"close"
+				},
+				"Extra":{
+					"Als Hintergrundbild verwenden":"setBackground"
+				}
+			},
+			"width": "80%",
+			"height": "80%",
+			"icon": "picture"
+		},
+		"Editor": {
+			"title": "file",
+			"statusbar": true,
+			"statuselements":{
+				"Datei":{
+					"&Ouml;ffnen":"open",
+					"Schlie&szlig":"close"
+				}
+			},
+			"width": "default",
+			"height": "default",
+			"icon": "pencil-squared"
+		},
+		"Player": {
+			"title": "file",
+			"statusbar": true,
+			"statuselements":{
+				"Datei":{
+					"&Ouml;ffnen":"open",
+					"Schlie&szlig":"close"
+				}
+			},
+			"width": "80%",
+			"height": "80%",
+			"icon": "play-circle2"
+		},
+		"Ordner": {
+			"icon":"folder"
+		}
+	}
+}

@@ -1,0 +1,12 @@
+Bug
+    Code
+        - Oft klicken lässt Note steckenbleiben
+    Design
+
+Feature
+    Code
+        Keyboard
+            - Resizing
+    Design
+        Allgemein
+            - Select-Boxen customizen:

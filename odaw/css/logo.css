@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('../font/MontserratAlternates-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('../font/MontserratAlternates-ExtraBold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('../font/MontserratAlternates-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('../font/MontserratAlternates-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+.loading-done .loading-layer {
+    display: none;
+}
+.loading {
+    transition: all 1s ease-in-out;
+    font-size: 10vmin;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    perspective: 500px;
+    top: -5vh;
+}
+.loading > .logo {
+    transition: all ease-in-out 2s 0.7s;
+    text-align: center;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    padding-left: 3em;
+    align-items: center;
+    white-space: nowrap;
+    width: 1em;
+}
+.loading.done > .logo {
+    padding-left: 0;
+}
+.loading > .logo > * {
+    display: inline-block;
+}
+.loading > .logo > * {
+    position: relative;
+    opacity: 1;
+    text-shadow:0 1px 0 var(--logo-3d-color),
+    0 2px 0 var(--logo-3d-color),
+    0 3px 0 var(--logo-3d-color),
+    0 4px 0 var(--logo-3d-color),
+    0 5px 0 var(--logo-3d-color),
+    0 6px 0 var(--logo-3d-color),
+    0 7px 0 var(--logo-3d-color),
+    0 10px 20px rgba(0,0,0,0.3);
+
+}
+.loading:not(.done) > .logo > * {
+    opacity: 0;
+    text-shadow: none;
+}
+.loading:not(.done) > .logo > :not(:first-child) {
+    left: -1em;
+}
+.loading .icon {
+    display: inline-block;
+    width: 0.888em;
+    height: 1.2em;
+    position: absolute;
+    z-index: 1000;
+}
+.loading.done > .icon {
+    transition: all 1s ease-in-out, opacity 0.5s linear 0.3s;
+    opacity: 0;
+}
+.loading > .icon, .loading > .logo > :first-child {
+    font-size: 2em;
+}
+.loading.done > .icon, .loading.done > .logo > :first-child {
+    font-size: 1em;
+}
+.loading.done > .logo > * {
+    left: 0;
+}
+.loading > .icon svg {
+    backfacevisibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+.loading > .icon svg path {
+    stroke: var(--light-text-color);
+    stroke-dasharray: 2 8;
+    fill: none;
+    stroke-width: 10%;
+    transform: scale(1,1);
+    transform-origin: 50%;
+}
+.loading:not(.done) > .icon svg path {
+    animation: logo-anim-1 0.5s infinite linear;
+}
+.loading.done > .icon svg path {
+    animation: logo-anim-2 0.5s linear forwards, logo-anim-1 0.5s infinite linear;
+}
+.loading.done > .logo {
+    animation: logo-anim-3 0.25s 3s ease-in forwards;
+}
+.loading > .logo > :first-child {
+    transition: left 1s ease-in-out 0.6s, letter-spacing 1s ease-in-out 0.6s, font-size 1s ease-in-out, opacity 0.3s linear 0.35s, text-shadow 1s ease-out 1.6s;
+    z-index: 900;
+    left: -0.015em;
+}
+.loading > .logo > :nth-child(2) {
+    transition: left 1s ease-in-out 0.6s, opacity 1s ease-in-out 0.6s, text-shadow 1s ease-out 1.2s;
+    z-index: 800;
+    animation-delay: 3.05s;
+}
+.loading > .logo > :nth-child(3) {
+    transition: left 1s ease-in-out 0.9s, opacity 1s ease-in-out 0.9s, text-shadow 1s ease-out 1.2s;
+    z-index: 700;
+    animation-delay: 3.1s;
+}
+.loading > .logo > :nth-child(4) {
+    transition: left 1s ease-in-out 1.2s, opacity 1s ease-in-out 1.2s, text-shadow 1s ease-out 1.2s;
+    z-index: 600;
+    animation-delay: 3.15s;
+}
+
+.logo {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: white;
+    --logo-3d-color: hsl(var(--main-hue), 60%, 50%);
+}
+.logo > :first-child {
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: var(--light-text-color);
+}
+.logo > :nth-child(2) {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.logo > :nth-child(3) {
+    font-weight: 700;
+}
+.logo > :nth-child(4) {
+    font-weight: 700;
+}
+
+.logo.small {
+    transition: all 0.1s;
+    display: inline-block;
+    font-size: 30px;
+    position: relative;
+    padding: 1em;
+    top: -2.5em;
+}
+.logo.small.done {
+    animation: logo-anim-4 0.5s cubic-bezier(0, 0.5, 0.5, 1)  3.4s forwards;
+    transform-origin: 75% 50%;
+}
+
+.logo.small > * {
+    text-shadow:0 1px 0 var(--logo-3d-color),
+    0 2px 0 var(--logo-3d-color),
+    0 3px 0 var(--logo-3d-color),
+    0 5px 10px rgba(0,0,0,0.3);
+}
+
+
+@keyframes logo-anim-1 {
+    to {
+        stroke-dashoffset: -10;
+    }
+}
+@keyframes logo-anim-2 {
+    to {
+        stroke-dasharray: 10 0;
+        stroke-width: 23%;
+        transform: scale(1.09, 1.01);
+    }
+}
+@keyframes logo-anim-3 {
+    from {
+        opacity: 1;
+        transform: scale(1) rotate3D(0, 0, 0, 0deg);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5) rotate3D(1, 0, 0, 100deg);
+    }
+}
+@keyframes logo-anim-4 {
+    to {
+        top: 0;
+    }
+}

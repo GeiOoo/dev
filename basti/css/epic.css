@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'epic';
+	src:url('../font/epic.eot');
+	src:url('../font/epic.eot?#iefix') format('embedded-opentype'),
+		url('../font/epic.woff') format('woff'),
+		url('../font/epic.ttf') format('truetype'),
+		url('../font/epic.svg#epic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+/*[data-icon]:before {
+	font-family: 'epic';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: 0.3em;
+	text-align: center;
+	line-height: 1em;
+	margin-left: 0.3em;
+}*/
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-epic:before,.icon-gamepad:before {
+	font-family: 'epic';
+	margin-left:0;
+}
+.icon-epic:before {
+	content: "\65";
+}
+.icon-gamepad:before {
+	content: "\e001";
+}

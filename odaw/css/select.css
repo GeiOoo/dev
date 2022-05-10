@@ -1,0 +1,60 @@
+.select {
+    margin: 0 0.1em;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: var(--light-text-color);
+    outline: none;
+    position: relative;
+    top: 0;
+}
+.select:after {
+    content: attr(data-selected);
+    border-bottom: 0.08em dotted var(--light-text-color);
+}
+.select:focus > div {
+    transition: none;
+    background-color: var(--button-color2);
+    background-image: linear-gradient(to top, transparent, var(--bg-color));
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.select:focus > div.opening {
+    transition: .4s;
+}
+.select > div {
+    top: 0;
+    white-space: nowrap;
+    position: absolute;
+    border-radius: 0.5em;
+    overflow: hidden;
+    z-index: 20000;
+    transition: top .4s, background .4s;
+}
+.select .option {
+    transition: height .4s, border .4s;
+    height: 0;
+    padding: 0.2em 0.5em;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 0 solid transparent;
+    border-top: 0 solid transparent;
+}
+.select:focus .option {
+    user-select: none;
+    display: block;
+    height: 1.8em;
+    border-bottom: 0.08em solid rgba(0,0,0,0.5);
+    border-top: 0.08em solid rgba(255,255,255,0.1);
+}
+.select:focus > div:not(.opening) .option:not(.disabled):hover {
+    background-color: var(--light-text-color);
+    color: var(--bg-color);
+    text-shadow: none;
+    font-weight: bold;
+}
+.select:focus .option.disabled {
+    color: var(--text-color);
+    transition: none;
+    cursor: auto;
+}

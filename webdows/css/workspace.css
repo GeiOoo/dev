@@ -1,0 +1,48 @@
+#workspaceSpacer {
+    position: relative;
+}
+
+.workSpaceItem {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    margin: 5px;
+    display: inline-block;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.workSpaceItem:not(.isDragging) {
+    transition: transform 200ms ease-in-out, border-color 100ms ease-in-out, background-color 100ms ease-in-out;
+}
+
+.workSpaceItem:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.workSpaceItem.active {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+.workSpaceItem:active {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.workspaceItemIcon {
+    position: relative;
+    height: 70px;
+}
+
+.workSpaceItemLabel {
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
