@@ -1,5 +1,4 @@
 <?php
-phpinfo();
 include_once("php/globalFn.php");
 ?>
 <!DOCTYPE html>
